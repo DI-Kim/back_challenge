@@ -4,11 +4,11 @@
    `/books`
 2. 책 목록 가져오기(GET)
    `/books`
-3. 책 정보 읽기(POST)
+3. 책 정보 읽기(GET)
    `/books/:id`
 4. 책 정보 갱신하기(PUT)
    `/books/:id`
-5. 책 정보 삭제하기()
+5. 책 정보 삭제하기(DELETE)
    `/books/:id`
 
 ---

@@ -1,0 +1,91 @@
+# 1. 책 정보 생성하기(POST)
+#    `/books`
+# 2. 책 목록 가져오기(GET)
+#    `/books`
+# 3. 책 정보 읽기(GET)
+#    `/books/:id`
+# 4. 책 정보 갱신하기(PUT)
+#    `/books/:id`
+# 5. 책 정보 삭제하기()
+#    `/books/:id`
+
+---
+paths:
+  /books:
+    get:
+      summary: 책 목록 가져오기
+      description:
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: A list of books not found.
+    post:
+      summary: 책 정보 생성하기
+      requestBody:
+        required: true
+        content:
+          application/json
+          schema:
+            type: object
+            properties:
+              book_name:
+                type: string
+                max_length: 30
+                required: true
+              book_desc:
+                type: string
+                max_length: 200
+              book_image:
+                type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Create book info failed
+              
+
+  /books/{id}:
+    get:
+      summary: 책 정보 읽기
+        parameters:
+          schema:
+            type: int
+            minimum: 1
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: [bookname]:[id] is not found
+    put:
+      summary: 책 정보 갱신하기
+      parameters:
+      requestBody:
+        required: true
+        content:
+          application/json
+          schema:
+            type: object
+            properties:
+              book_name:
+                type: string
+                max_length: 30
+                required: true
+              book_desc:
+                type: string
+                max_length: 200
+              book_image:
+                type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: [bookname]:[id] is not updated
+    delete:
+      summary: 책 정보 삭제하기
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Cannot delete [bookname]:[id]
+    
